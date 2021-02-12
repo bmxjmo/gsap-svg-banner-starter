@@ -1,0 +1,76 @@
+<svg id="banner" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    viewBox="0 0 336 280" 
+    xml:space="preserve">
+    <style type="text/css">
+    <![CDATA[ 
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500;1,600');
+        
+        svg {font-family:'Montserrat',sans-serif}
+        svg {position:relative; overflow:hidden}
+        text {letter-spacing:-0.08em;}
+        text {text-anchor:middle;opacity:0}
+        
+        .fw300 {font-weight:300}
+        .fw400 {font-weight:400}        
+        .fw500 {font-weight:500}
+        .fw600 {font-weight:600}
+        
+        .i {font-style:italic}        
+
+        .f36 {font-size:36px;}
+        .f72 {font-size:72px;}
+
+        .white {fill:#ffffff}
+        .cyan {fill:#00ccff}
+        .marine {fill:#000099}
+
+        .bg {width:100%;height:100%}
+        .sky {width:100%;height:100%}
+        .line {width:100%;height:6px}
+
+    ]]>
+    </style>
+    
+    <defs>
+    <linearGradient id="sky" gradientTransform="rotate(90)">
+    <stop offset="5%"  stop-color="gold" />
+    <stop offset="95%" stop-color="red" />
+    </linearGradient>
+    </defs>
+
+    <rect class="bg marine" />
+    <rect class="sky" fill="url('#sky')" />
+    <rect class="line cyan" />
+
+    <text class="white f72 fw600 tecnology">Tecnology</text>
+    <text class="white f72 fw600 i scienceofcraft">Sciense<tspan class="fw300 i">Of Craft</tspan></text>
+
+    <script xlink:href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+
+    <script type="text/javascript">
+    <![CDATA[
+
+    const select = s => document.querySelector(s); 
+    const banner = select('#banner');
+    const size = banner.getBoundingClientRect();
+
+    //console.log(size);
+    let start=0,end=size.width,X=size.width/2,Y=size.height/2;
+
+    const t1 = select('.tecnology'),t2 = select('.scienceofcraft');
+
+    let tl = gsap.timeline({repeat:-1,repeatDelay:0});
+
+    tl.set([t1,t2],{transformOrigin:'50% 50% 0',opacity:0,x:X,y:Y})
+
+    tl.fromTo(t1,1,{x:end,opacity:0}, {x:X,opacity:1,delay:0,ease:Power1.easeIn})
+    .to(t1,1.2,{x:start,opacity:0,delay:0, ease:Power1.easeOut});
+
+    tl.fromTo(t2,1,{x:end,opacity:0}, {x:X,opacity:1,delay:-1,ease:Power1.easeIn})
+    .to(t2,1.8,{x:start,opacity:0,delay:0, ease:Power1.easeOut});
+
+    ]]>
+    </script>
+</svg>
